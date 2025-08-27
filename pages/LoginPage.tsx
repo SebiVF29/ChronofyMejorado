@@ -76,49 +76,38 @@ const LoginPage: React.FC = () => {
   ]
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 lg:p-8 bg-gradient-to-br from-primary via-secondary to-accent animated-gradient relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto w-full max-w-6xl relative z-10">
+    <div className="min-h-screen flex items-center justify-center p-4 lg:p-8 bg-gradient-to-br from-primary via-secondary to-accent animated-gradient">
+      <div className="container mx-auto w-full max-w-6xl">
           <div className="grid lg:grid-cols-2 items-center gap-16">
               <div className="text-white hidden lg:block">
-                  <div className="flex items-center gap-4 mb-8">
-                     <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm shadow-2xl">
-                       <Icon name="academic-cap" className="w-12 h-12"/>
-                     </div>
-                     <h1 className="text-7xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Chronofy</h1>
+                  <div className="flex items-center gap-4 mb-4">
+                     <Icon name="academic-cap" className="w-16 h-16"/>
+                     <h1 className="text-6xl font-bold">Chronofy</h1>
                   </div>
-                  <p className="text-2xl mb-12 opacity-90 leading-relaxed font-light">
+                  <p className="text-2xl mb-10 opacity-90 leading-relaxed">
                       Your academic life, simplified and supercharged.
                   </p>
-                  <div className="space-y-8">
-                      {featureList.map((feature, index) => (
-                          <div key={feature.title} className="flex items-start gap-6 group">
-                              <div className="flex-shrink-0 bg-white/20 p-4 rounded-2xl backdrop-blur-sm shadow-lg group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                                <Icon name={feature.icon} className="w-7 h-7"/>
+                  <ul className="space-y-6">
+                      {featureList.map(feature => (
+                          <li key={feature.title} className="flex items-start gap-4">
+                              <div className="flex-shrink-0 bg-white/20 p-3 rounded-full">
+                                <Icon name={feature.icon} className="w-6 h-6"/>
                               </div>
-                              <div className="group-hover:translate-x-2 transition-transform duration-300">
-                                  <h3 className="text-2xl font-bold mb-2">{feature.title}</h3>
-                                  <p className="opacity-80 text-lg leading-relaxed">{feature.description}</p>
+                              <div>
+                                  <h3 className="text-xl font-semibold">{feature.title}</h3>
+                                  <p className="opacity-80">{feature.description}</p>
                               </div>
-                          </div>
+                          </li>
                       ))}
-                  </div>
+                  </ul>
               </div>
 
-              <Card className="w-full bg-card/90 backdrop-blur-2xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
-                <div className="text-center mb-10">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center mx-auto mb-6 lg:hidden shadow-2xl">
-                      <Icon name="academic-cap" className="w-10 h-10 text-white" />
-                    </div>
-                    <h2 className="text-4xl font-bold text-card-foreground mb-3">Welcome Back!</h2>
-                    <p className="text-card-foreground/70 text-lg">
-                        {isLoginView ? 'Log in to simplify your academic life.' : 'Create an account to get started on your journey.'}
+              <Card className="w-full bg-card/80 backdrop-blur-lg border border-white/20">
+                <div className="text-center mb-8">
+                    <Icon name="academic-cap" className="w-16 h-16 text-primary mx-auto mb-4 lg:hidden" />
+                    <h2 className="text-3xl font-bold text-card-foreground">Welcome!</h2>
+                    <p className="text-card-foreground/70 mt-2">
+                        {isLoginView ? 'Log in to simplify your life.' : 'Create an account to get started.'}
                     </p>
                 </div>
 

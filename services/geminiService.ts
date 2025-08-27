@@ -94,7 +94,7 @@ export const extractEventsFromSyllabus = async (content: string | File): Promise
         },
     });
 
-    const jsonText = response.text.trim();
+    const jsonText = response.text?.trim() || '';
     if (!jsonText) {
         return []; // Model found no events
     }

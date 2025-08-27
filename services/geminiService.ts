@@ -1,11 +1,18 @@
 import { GoogleGenAI, Type, Chat, GenerateContentResponse, Part } from "@google/genai";
 import { ExtractedEvent } from '../types';
 
-if (!process.env.API_KEY) {
+// Get API key from environment variables
+const getApiKey = () => {
+    return process.env.API_KEY || process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+};
+
+const apiKey = getApiKey();
+
+if (!apiKey) {
     console.warn("API_KEY environment variable not set. AI features will be disabled.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY! });
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 const eventSchema = {
     type: Type.ARRAY,
@@ -56,7 +63,7 @@ async function fileToGenerativePart(file: File): Promise<Part> {
 
 
 export const extractEventsFromSyllabus = async (content: string | File): Promise<ExtractedEvent[]> => {
-  if (!process.env.API_KEY) {
+  if (!apiKey || !ai) {
     throw new Error("Gemini API key is not configured.");
   }
 
@@ -107,7 +114,7 @@ export const extractEventsFromSyllabus = async (content: string | File): Promise
 
 
 export const createChat = (): Chat => {
-    if (!process.env.API_KEY) {
+    if (!apiKey || !ai) {
         throw new Error("Gemini API key is not configured.");
     }
     return ai.chats.create({

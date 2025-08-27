@@ -6,10 +6,17 @@
   --color-primary: #3b82f6; /* blue-500 */
   --color-secondary: #6366f1; /* indigo-500 */
   --color-accent: #ec4899; /* pink-500 */
-  --color-background: #f1f5f9; /* slate-100 */
-  --color-foreground: #0f172a; /* slate-900 */
+  --color-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Beautiful gradient */
+  --color-foreground: #1f2937; /* gray-800 */
   --color-card: #ffffff;
-  --color-card-foreground: #0f172a;
+  --color-card-foreground: #1f2937;
+}
+
+body {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 25%, #4facfe 50%, #00f2fe 75%, #43e97b 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
 }
 
 .dark {
@@ -23,13 +30,23 @@
 }
 
 .animated-gradient {
-  background-size: 200% 200%;
+  background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
   0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
   100% { background-position: 0% 50%; }
 }
 

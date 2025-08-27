@@ -34,28 +34,13 @@ const App: React.FC = () => {
   } catch (error) {
     console.error('Critical app error:', error);
     return (
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f1f5f9',
-        fontFamily: 'Inter, sans-serif'
-      }}>
-        <div style={{ textAlign: 'center' }}>
-          <h1 style={{ color: '#dc2626' }}>Critical Error</h1>
-          <p>Failed to initialize Chronofy. Please refresh the page.</p>
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-xl font-bold text-red-600 mb-2">Critical Error</h1>
+          <p className="text-foreground mb-4">Failed to initialize Chronofy. Please refresh the page.</p>
           <button
             onClick={() => window.location.reload()}
-            style={{
-              backgroundColor: '#3b82f6',
-              color: 'white',
-              padding: '10px 20px',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              marginTop: '10px'
-            }}
+            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90"
           >
             Reload
           </button>
@@ -66,8 +51,6 @@ const App: React.FC = () => {
 };
 
 const MainApp: React.FC = () => {
-  const [error, setError] = useState<string | null>(null);
-
   try {
     const { theme } = useTheme();
     const { isAuthenticated, loading } = useAuth();
@@ -88,26 +71,14 @@ const MainApp: React.FC = () => {
 
     if (loading) {
       return (
-        <div style={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#f1f5f9',
-          fontFamily: 'Inter, sans-serif'
-        }}>
-          <div style={{ fontSize: '18px', color: '#3b82f6' }}>Loading Chronofy...</div>
+        <div className="bg-background text-foreground min-h-screen font-sans flex items-center justify-center">
+          <Icon name="cog" className="w-16 h-16 text-primary animate-spin" />
         </div>
       );
     }
 
     return (
-      <div style={{
-        minHeight: '100vh',
-        fontFamily: 'Inter, sans-serif',
-        backgroundColor: theme === 'dark' ? '#0f172a' : '#f1f5f9',
-        color: theme === 'dark' ? '#f1f5f9' : '#0f172a'
-      }}>
+      <div className="text-foreground min-h-screen font-sans transition-colors duration-500">
         <Routes>
           <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to="/" />} />
           <Route path="/*" element={isAuthenticated ? <ProtectedRoutes /> : <Navigate to="/login" />} />
@@ -117,37 +88,15 @@ const MainApp: React.FC = () => {
   } catch (err) {
     console.error('App error:', err);
     return (
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f1f5f9',
-        fontFamily: 'Inter, sans-serif',
-        padding: '20px'
-      }}>
-        <div style={{
-          maxWidth: '400px',
-          textAlign: 'center',
-          backgroundColor: 'white',
-          padding: '30px',
-          borderRadius: '8px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-        }}>
-          <h1 style={{ color: '#dc2626', marginBottom: '16px' }}>App Error</h1>
-          <p style={{ color: '#374151', marginBottom: '20px' }}>
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <div className="max-w-md bg-card p-6 rounded-lg shadow-lg text-center">
+          <h1 className="text-xl font-bold text-red-600 mb-4">App Error</h1>
+          <p className="text-card-foreground mb-4">
             There was an error loading Chronofy. Please try refreshing the page.
           </p>
           <button
             onClick={() => window.location.reload()}
-            style={{
-              backgroundColor: '#3b82f6',
-              color: 'white',
-              padding: '10px 20px',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer'
-            }}
+            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90"
           >
             Reload Page
           </button>

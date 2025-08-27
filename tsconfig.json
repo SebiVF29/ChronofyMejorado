@@ -1,45 +1,40 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "declaration": false,
-    "declarationMap": false,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "removeComments": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
+
+    /* Linting */
+    "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "exactOptionalPropertyTypes": false,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "noUncheckedIndexedAccess": false,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Additional options */
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
+
+    /* Path mapping */
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     },
-    "baseUrl": ".",
-    "types": ["node", "vite/client"],
-    "allowImportingTsExtensions": true,
-    "moduleDetection": "force"
+
+    /* Types */
+    "types": ["vite/client"]
   },
   "include": [
     "**/*.ts",
@@ -50,7 +45,6 @@
   ],
   "exclude": [
     "node_modules",
-    "dist",
-    "build"
+    "dist"
   ]
 }

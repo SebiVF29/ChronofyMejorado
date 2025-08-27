@@ -76,93 +76,145 @@ const LoginPage: React.FC = () => {
   ]
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 lg:p-8 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 animated-gradient relative overflow-hidden">
-      {/* Animated background elements */}
+    <div className="min-h-screen flex items-center justify-center p-4 lg:p-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+      {/* Enhanced animated background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-blue-400/30 to-cyan-400/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-pink-400/30 to-rose-400/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-72 h-72 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+
+        {/* Floating particles */}
+        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-white/40 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-yellow-300/60 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute top-1/2 left-3/4 w-5 h-5 bg-pink-300/50 rounded-full animate-bounce delay-1000"></div>
       </div>
 
-      <div className="container mx-auto w-full max-w-6xl relative z-10">
-          <div className="grid lg:grid-cols-2 items-center gap-16">
-              <div className="text-white hidden lg:block">
-                  <div className="flex items-center gap-4 mb-8">
-                     <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center backdrop-blur-sm shadow-2xl border border-white/30">
-                       <Icon name="academic-cap" className="w-12 h-12"/>
+      <div className="container mx-auto w-full max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 items-center gap-20">
+              <div className="text-white hidden lg:block space-y-10">
+                  <div className="space-y-6">
+                     <div className="flex items-center gap-6">
+                       <div className="w-24 h-24 bg-gradient-to-br from-white/20 to-white/10 rounded-3xl flex items-center justify-center backdrop-blur-sm shadow-2xl border-2 border-white/30">
+                         <Icon name="academic-cap" className="w-14 h-14 text-white"/>
+                       </div>
+                       <div>
+                         <h1 className="text-7xl font-black bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent drop-shadow-2xl tracking-tight">
+                           Chronofy
+                         </h1>
+                         <div className="flex items-center gap-2 mt-2">
+                           <span className="text-2xl">✨</span>
+                           <span className="text-xl font-light text-white/80">Smart Student Agenda</span>
+                         </div>
+                       </div>
                      </div>
-                     <h1 className="text-7xl font-bold bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent drop-shadow-2xl">Chronofy ✨</h1>
+                     <p className="text-2xl font-light text-white/90 leading-relaxed drop-shadow-lg">
+                         Transform your academic journey with intelligent planning,
+                         <span className="font-semibold text-yellow-200"> AI-powered insights</span>, and
+                         <span className="font-semibold text-cyan-200"> seamless organization</span>. 🚀
+                     </p>
                   </div>
-                  <p className="text-2xl mb-12 opacity-90 leading-relaxed font-light drop-shadow-lg">
-                      Your academic life, simplified and supercharged. 🚀
-                  </p>
-                  <div className="space-y-8">
+
+                  <div className="grid grid-cols-1 gap-6">
                       {featureList.map((feature, index) => (
-                          <div key={feature.title} className="flex items-start gap-6 group hover:scale-105 transition-transform duration-300">
-                              <div className="flex-shrink-0 bg-white/20 p-4 rounded-2xl backdrop-blur-sm shadow-lg group-hover:bg-white/30 transition-all duration-300 border border-white/30">
-                                <Icon name={feature.icon} className="w-7 h-7"/>
-                              </div>
-                              <div className="group-hover:translate-x-2 transition-transform duration-300">
-                                  <h3 className="text-2xl font-bold mb-2 drop-shadow">{feature.title}</h3>
-                                  <p className="opacity-80 text-lg leading-relaxed drop-shadow-sm">{feature.description}</p>
+                          <div key={feature.title} className="group hover:scale-105 transition-all duration-500 hover:translate-x-4">
+                              <div className="flex items-start gap-6 p-6 rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl group-hover:bg-white/15 group-hover:shadow-2xl transition-all duration-500">
+                                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 border border-white/30">
+                                  <Icon name={feature.icon} className="w-8 h-8 text-white"/>
+                                </div>
+                                <div className="space-y-2">
+                                    <h3 className="text-2xl font-bold text-white drop-shadow-lg">{feature.title}</h3>
+                                    <p className="text-white/80 text-lg leading-relaxed font-light">{feature.description}</p>
+                                </div>
                               </div>
                           </div>
                       ))}
                   </div>
               </div>
 
-              <Card className="w-full bg-white/95 backdrop-blur-2xl border-2 border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500">
-                <div className="text-center mb-10">
-                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 lg:hidden shadow-2xl">
-                      <Icon name="academic-cap" className="w-10 h-10 text-white" />
+              <Card className="w-full bg-white/95 backdrop-blur-3xl border-2 border-white/40 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="text-center mb-12">
+                    <div className="w-24 h-24 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-600 rounded-3xl flex items-center justify-center mx-auto mb-8 lg:hidden shadow-2xl transform hover:rotate-6 transition-transform duration-300">
+                      <Icon name="academic-cap" className="w-12 h-12 text-white" />
                     </div>
-                    <h2 className="text-4xl font-bold text-gray-800 mb-3">Welcome Back! 🎉</h2>
-                    <p className="text-gray-600 text-lg">
-                        {isLoginView ? 'Log in to simplify your academic life. ✨' : 'Create an account to get started on your journey. 🚀'}
-                    </p>
+                    <div className="space-y-4">
+                      <h2 className="text-5xl font-black text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text">
+                        {isLoginView ? 'Welcome Back!' : 'Join Chronofy'}
+                      </h2>
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-2xl">{isLoginView ? '🎉' : '🚀'}</span>
+                        <span className="text-2xl">{isLoginView ? '✨' : '🌟'}</span>
+                        <span className="text-2xl">{isLoginView ? '📚' : '💫'}</span>
+                      </div>
+                      <p className="text-gray-600 text-xl font-light leading-relaxed max-w-md mx-auto">
+                          {isLoginView
+                            ? 'Ready to continue your academic journey? Your organized life awaits! ✨'
+                            : 'Start your journey to academic excellence and organized success! 🚀'
+                          }
+                      </p>
+                    </div>
                 </div>
 
                 {error && <p className="mb-4 text-center text-red-500 bg-red-500/10 p-3 rounded-lg">{error}</p>}
                 {message && <p className="mb-4 text-center text-green-500 bg-green-500/10 p-3 rounded-lg">{message}</p>}
                 
-                <form onSubmit={handleAuthAction} className="space-y-4">
-                    <fieldset disabled={loading} className="space-y-4">
+                <form onSubmit={handleAuthAction} className="space-y-6">
+                    <fieldset disabled={loading} className="space-y-6">
                         {!isLoginView && (
-                            <Input 
-                                label="Full Name" 
-                                id="name"
-                                type="text" 
-                                placeholder="e.g., Sebastian" 
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                icon={<Icon name="user" className="w-5 h-5 text-gray-400" />}
-                                required 
-                            />
+                            <div className="transform hover:scale-[1.02] transition-transform duration-200">
+                              <Input
+                                  label="Full Name"
+                                  id="name"
+                                  type="text"
+                                  placeholder="e.g., Sebastian ✨"
+                                  value={name}
+                                  onChange={(e) => setName(e.target.value)}
+                                  icon={<Icon name="user" className="w-5 h-5 text-indigo-500" />}
+                                  required
+                              />
+                            </div>
                         )}
-                        <Input 
-                            label="University Email" 
-                            id="email"
-                            type="email" 
-                            placeholder="sebastian@university.edu" 
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            icon={<Icon name="mail" className="w-5 h-5 text-gray-400" />}
-                            required
-                        />
-                        <Input 
-                            label="Password" 
-                            id="password"
-                            type="password" 
-                            placeholder="••••••••" 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            icon={<Icon name="lock" className="w-5 h-5 text-gray-400" />}
-                            required 
-                        />
+                        <div className="transform hover:scale-[1.02] transition-transform duration-200">
+                          <Input
+                              label="University Email"
+                              id="email"
+                              type="email"
+                              placeholder="sebastian@university.edu 📧"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              icon={<Icon name="mail" className="w-5 h-5 text-purple-500" />}
+                              required
+                          />
+                        </div>
+                        <div className="transform hover:scale-[1.02] transition-transform duration-200">
+                          <Input
+                              label="Password"
+                              id="password"
+                              type="password"
+                              placeholder="••••••••"
+                              value={password}
+                              onChange={(e) => setPassword(e.target.value)}
+                              icon={<Icon name="lock" className="w-5 h-5 text-pink-500" />}
+                              required
+                          />
+                        </div>
 
-                        <Button type="submit" className="w-full text-lg !mt-6" variant="primary">
-                            {loading ? (isLoginView ? 'Logging In...' : 'Creating Account...') : (isLoginView ? 'Log In' : 'Create Account')}
-                        </Button>
+                        <div className="pt-4">
+                          <Button type="submit" className="w-full text-xl font-bold !mt-8 h-14 shadow-2xl hover:shadow-3xl" variant="primary">
+                              <span className="flex items-center justify-center gap-3">
+                                {loading ? (
+                                  <>
+                                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                    {isLoginView ? 'Logging In...' : 'Creating Account...'}
+                                  </>
+                                ) : (
+                                  <>
+                                    {isLoginView ? '🚀 Log In' : '✨ Create Account'}
+                                  </>
+                                )}
+                              </span>
+                          </Button>
+                        </div>
                     </fieldset>
                 </form>
 

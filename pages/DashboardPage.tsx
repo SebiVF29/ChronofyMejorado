@@ -44,7 +44,7 @@ const ProductivityTracker: React.FC = () => {
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
                     <Icon name="sparkles" className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800">📊 Weekly Progress</h2>
+                <h2 className="text-3xl font-black text-gray-800 tracking-tight">📊 Weekly Progress</h2>
             </div>
             <div className="space-y-6">
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-100">
@@ -149,7 +149,7 @@ const DashboardPage: React.FC = () => {
               <span className="text-2xl font-bold">{user?.name?.charAt(0).toUpperCase()}</span>
             </div>
             <div>
-              <h1 className="text-4xl font-bold drop-shadow-lg">
+              <h1 className="text-5xl font-extrabold drop-shadow-lg tracking-tight leading-tight">
                 {getGreeting()}, {user?.name}! 🌟
               </h1>
               <p className="text-xl text-white/90 mt-2 drop-shadow">
@@ -177,7 +177,7 @@ const DashboardPage: React.FC = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
               <Icon name="calendar" className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800">📅 Upcoming Events</h2>
+            <h2 className="text-3xl font-black text-gray-800 tracking-tight">📅 Upcoming Events</h2>
           </div>
           {upcomingEvents.length > 0 ? (
             <div className="space-y-4">
@@ -223,7 +223,7 @@ const DashboardPage: React.FC = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
               <Icon name="check-circle" className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800">✅ Today's To-Dos</h2>
+            <h2 className="text-3xl font-black text-gray-800 tracking-tight">✅ Today's To-Dos</h2>
           </div>
           {todaysTasks.length > 0 ? (
             <div className="space-y-3">
@@ -271,7 +271,7 @@ const DashboardPage: React.FC = () => {
                 <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30">
                   <span className="text-2xl">💭</span>
                 </div>
-                <h3 className="text-2xl font-bold drop-shadow">Quote of the Day</h3>
+                <h3 className="text-3xl font-black drop-shadow tracking-tight">Quote of the Day</h3>
               </div>
               <blockquote className="text-2xl font-medium italic leading-relaxed drop-shadow-sm">
                 "{dailyQuote}"
